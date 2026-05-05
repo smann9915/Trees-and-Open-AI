@@ -115,7 +115,7 @@ int main() {
     Tree<string> adventureTree;
 
     // TODO: Students, create the root from rawNodes[0]
-    // adventureTree.createRoot(rawNodes[0].id, rawNodes[0].text);
+    adventureTree.createRoot(rawNodes[0].id, rawNodes[0].text);
 
     // TODO: Students, add all remaining nodes
     // for (int i = 1; i < rawNodes.size(); i++) {
