@@ -118,9 +118,9 @@ int main() {
     adventureTree.createRoot(rawNodes[0].id, rawNodes[0].text);
 
     // TODO: Students, add all remaining nodes
-    // for (int i = 1; i < rawNodes.size(); i++) {
-    //     adventureTree.addNode(...);
-    // }
+    for (int i = 1; i < rawNodes.size(); i++) {
+        //adventureTree.addNode(rawNodes[i].id, rawNodes[i].text);
+    }
 
     // TODO: Students, implement a method in Tree<T> called playGame()
     // This method should:

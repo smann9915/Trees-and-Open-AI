@@ -5,6 +5,7 @@
 #ifndef FA25EC3_TREE_H
 #define FA25EC3_TREE_H
 
+#include <deque>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -54,25 +55,43 @@ public:
     }
 
     void createRoot(const string &id, const T &value) {
-        root = new Node<T>(id, data);
+        root = new Node<T>(id, value);
     }
 
     void addNode(const string &parentID, const string &childID, const T &value) {
         Node<T> parentNode = findNode(parentID);
+        if (!parentNode) {
+            return;
+        }
         parentNode.children.push_back(new Node<T>(childID, value));
     }
     // TODO: Find parent, create child, link parent to child
     // TODO: Support repeated children under multiple parents
 
     Node<T>* findNode(const string &id) {
+        deque<Node<T>*> queue = root->children;
 
+        while (!queue.empty()) {
+            Node<T>* node = queue.pop_front();
+            if (node->id == id) {
+                return node;
+            }
+            for (Node<T>* child : node->children) {
+                queue.push_back(child);
+            }
+        }
+        return nullptr;
     }
     // TODO: Use DFS or BFS to search tree
 
-    void printAll();
+    void printAll() {
+
+    }
     // TODO: Print entire structure in readable form
 
-    ~Tree();
+    ~Tree() {
+
+    }
     // TODO: Free all allocated memory
 };
 
